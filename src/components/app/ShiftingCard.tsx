@@ -1,0 +1,55 @@
+"use client";
+
+import { Dots } from "./Dots";
+import { ParallaxImg } from "./ParallaxImg";
+
+type Props = {
+  hint?: string;
+
+  title: string;
+  description: string;
+  imgUrl: string;
+
+  bottomIcon: React.ElementType;
+};
+
+export const ShiftingCard = ({
+  hint,
+  title,
+  description,
+  imgUrl,
+  bottomIcon: BottomIcon,
+}: Props) => {
+  return (
+    <div className="w-full md:sticky top-0 py-20 flex flex-col gap-6 bg-background">
+      <div className="grid md:grid-cols-5 gap-6">
+        <div className="col-span-5 md:col-span-2 aspect-video md:aspect-square relative overflow-hidden">
+          <ParallaxImg
+            src={imgUrl}
+            alt="Shifting card image"
+            className="object-cover object-center absolute top-0 left-0 w-full h-full"
+          />
+        </div>
+        <div className="col-span-5 md:col-span-3 border-t border-foreground flex flex-col gap-6 justify-between relative">
+          <div className="absolute top-0 right-0 scale-[200%] origin-top-right">
+            <div className="w-full h-full bg-gradient-to-tr from-background to-transparent absolute top-0 right-0 z-10"></div>
+            <Dots className="text-muted-foreground opacity-5" />
+          </div>
+          <span className="absolute top-2 right-0 font-mono text-xs z-10">
+            {hint} —
+          </span>
+
+          <h2 className="text-center md:text-left text-3xl md:text-4xl font-medium tracking-tight max-w-lg text-balance mt-10 z-10 relative">
+            {title}
+          </h2>
+
+          <p className="text-center md:text-left text-xl font-light max-w-2xl relative z-10">
+            {description}
+          </p>
+
+          <BottomIcon className="w-10 h-10 z-10" />
+        </div>
+      </div>
+    </div>
+  );
+};
