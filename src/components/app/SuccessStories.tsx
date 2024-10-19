@@ -25,7 +25,7 @@ export const SuccessStories = ({
 
   useEffect(() => {
     addAnimation();
-  }, []);
+  }, [addAnimation]);
   const [start, setStart] = useState(false);
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
@@ -85,7 +85,7 @@ export const SuccessStories = ({
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
-        {items.map((item, idx) => (
+        {items.map((item) => (
           <SuccessStoryCard key={item.title} {...item} />
         ))}
       </ul>
