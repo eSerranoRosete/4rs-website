@@ -48,7 +48,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="absolute bottom-10 md:right-10 md:translate-x-0 z-10 flex items-center gap-10 flex-wrap justify-center left-1/2 -translate-x-1/2 right-auto">
+            <div className="absolute bottom-10 md:right-10 md:translate-x-0 z-10 flex items-center md:gap-10 gap-5 flex-wrap justify-center left-1/2 -translate-x-1/2 right-auto">
               <img
                 src="/product-logos/4everalertlogow.png"
                 alt="4ever-alert logo"
@@ -140,10 +140,10 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 md:grid-rows-3 gap-6 mt-10">
-            <div className="p-6 row-span-full rounded-xl flex flex-col bg-muted relative overflow-hidden">
+            <div className="p-6 text-center md:text-left row-span-full rounded-xl flex flex-col bg-muted relative overflow-hidden">
               <ParallaxImg
                 src="/world-dots.png"
-                className="absolute w-full h-full top-0 left-0 bg-cover bg-center opacity-15"
+                className="absolute w-full h-full top-0 left-0 bg-cover bg-center mix-blend-overlay"
               />
               <div className="z-10 flex flex-col gap-6">
                 <p className="text-6xl font-bold tracking-tight">
@@ -169,8 +169,8 @@ export default function Home() {
               />
             </div>
             <div className="p-6 rounded-xl flex items-center bg-muted">
-              <div>
-                <p className="text-8xl font-bold tracking-tight">
+              <div className="text-center m-auto">
+                <p className="text-8xl font-bold tracking-tight text-brand">
                   <StatsCounter from={0} to={142} suffix="+" />
                 </p>
                 <p className="text-lg">
@@ -185,8 +185,8 @@ export default function Home() {
               />
             </div>
             <div className="p-6 rounded-xl flex items-center bg-muted">
-              <div>
-                <p className="text-8xl font-bold tracking-tight">
+              <div className="text-center m-auto">
+                <p className="text-8xl font-bold tracking-tight text-brand">
                   <StatsCounter from={0} to={1471} suffix="+" increments={10} />
                 </p>
                 <p className="text-lg">Proyectos entregados a la medida</p>
@@ -196,7 +196,8 @@ export default function Home() {
         </Container>
       </PageSection>
 
-      <PageSection className="bg-muted flex flex-col pt-20">
+      <PageSection className="flex flex-col pt-20">
+        <div className="absolute w-full h-full md:h-2/3 top-0 left-0 bg-muted -z-10"></div>
         <Container>
           <div>
             <Title>
@@ -255,7 +256,7 @@ export default function Home() {
           </Title>
 
           <SuccessStories
-            speed="normal"
+            speed="slow"
             items={[
               {
                 hint: "Ciudad de México",
@@ -292,7 +293,7 @@ export default function Home() {
         </Container>
       </PageSection>
 
-      <PageSection className="bg-background dark text-foreground">
+      <PageSection className="text-foreground bg-muted">
         <Container>
           <ShiftingCard
             title="Operamos como una estación central en la nube."
@@ -318,14 +319,14 @@ export default function Home() {
         </Container>
       </PageSection>
 
-      <PageSection fullHeight className="h-full md:h-screen">
+      <PageSection id="hogar" fullHeight className="h-full md:h-screen">
         <Container className="flex flex-col gap-6">
           <Title>
             Nuestras marcas te apoyan: Equipos de seguridad, accesorios y
             monitoreo 24/7
           </Title>
 
-          <div className="grid grow md:grid-cols-2 gap-6">
+          <div className="grid grow md:grid-cols-2 gap-6 mt-5">
             <div className="relative overflow-hidden cursor-pointer aspect-square md:aspect-auto">
               <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black/40 to-black via-transparent z-10" />
 
@@ -338,7 +339,7 @@ export default function Home() {
                 alt="Mexico city skyline"
                 className="w-full h-full object-cover object-center absolute top-0 left-0"
               />
-              <h3 className="text-center md:text-left text-2xl md:text-4xl text-balance text-white font-bold z-10 absolute bottom-10 left-10">
+              <h3 className="text-center md:text-left text-2xl md:text-4xl text-balance text-white font-bold z-10 md:absolute bottom-10 md:left-10">
                 4Ever Tech Solutions - Equipos y monitoreo para integradores
               </h3>
             </div>
@@ -354,7 +355,7 @@ export default function Home() {
                 alt="Mexico city skyline"
                 className="w-full h-full object-cover object-center absolute top-0 left-0"
               />
-              <h3 className="text-center md:text-left text-2xl md:text-4xl text-balance text-white font-bold z-10 absolute bottom-10 left-10">
+              <h3 className="text-center md:text-left text-2xl md:text-4xl text-balance text-white font-bold z-10 md:absolute bottom-10 md:left-10">
                 4Ever Alert - Equipos y monitoreo para hogar y vecindario
               </h3>
             </div>

@@ -5,10 +5,14 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { Container } from "./Container";
+import { ModeToggle } from "./ModeToggle";
 
 export const Footer = () => {
   return (
-    <footer className="w-full dark bg-background text-foreground">
+    <footer
+      className="w-full text-foreground bg-muted"
+      suppressHydrationWarning
+    >
       <Container>
         <div className="w-full p-6 py-10 flex flex-col">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10 w-full">
@@ -27,8 +31,8 @@ export const Footer = () => {
           <div className="w-full flex flex-col md:flex-row gap-10 justify-between">
             <div className="flex flex-col gap-4 max-w-xs">
               <p className="text-sm text-muted-foreground">
-                &#8212; La manera más sencilla de crear tarjetas de presentación
-                digitales. Comienza hoy mismo.
+                &#8212; Crear una atmósfera de tranquilidad, confort y seguridad
+                para nuestros clientes.
               </p>
 
               <div className="flex items-center justify-between text-sm font-medium">
@@ -36,7 +40,7 @@ export const Footer = () => {
                 <a href="tel:+52 55 3687 4435">+52 55 3687 4435</a>
               </div>
 
-              {/* <ModeToggle /> */}
+              <ModeToggle />
             </div>
 
             <div className="">
@@ -123,9 +127,10 @@ export const Footer = () => {
           <Separator className="my-10" />
           <div className="flex items-center justify-between text-xs text-muted-foreground">
             <p>&copy; 2024 4ever Alert. Todos los derechos reservados.</p>
-            <Link href="/">
-              <img src="/4everPROJECTSlogoW.png" className="w-28" />
-            </Link>
+            <Link
+              href="/"
+              className="p-2 rounded inline-block w-32 bg-[url('/4everPROJECTSlogo.png')] dark:bg-[url('/4everPROJECTSlogoW.png')] h-10 bg-contain"
+            ></Link>
           </div>
         </div>
       </Container>

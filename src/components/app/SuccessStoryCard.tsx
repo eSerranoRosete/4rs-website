@@ -14,7 +14,7 @@ export const SuccessStoryCard = ({ hint, title, imgurl }: Props) => {
     <>
       <Sheet open={false}>
         <SheetTrigger asChild>
-          <div className="w-96 rounded-md overflow-hidden h-full cursor-pointer shrink-0 relative p-8 hover:opacity-90">
+          <div className="w-96 overflow-hidden h-full cursor-pointer shrink-0 relative p-8 hover:opacity-90 rounded-xl">
             <div className="relative z-20 text-white">
               <span className="text-lg mb-4 block">{hint}</span>
               <h3 className="text-4xl font-semibold text-balance">{title}</h3>

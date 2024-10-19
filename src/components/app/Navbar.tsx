@@ -16,9 +16,10 @@ export const NavBar = () => {
       <Container>
         <nav className="text-white flex gap-2 items-center">
           <div className="grow">
-            <Link href="/" className="p-2 rounded inline-block">
-              <img src="/4everPROJECTSlogo.png" className="w-28" />
-            </Link>
+            <Link
+              href="/"
+              className="p-2 rounded inline-block w-32 bg-[url('/4everPROJECTSlogo.png')] dark:bg-[url('/4everPROJECTSlogoW.png')] h-10 bg-contain"
+            ></Link>
           </div>
 
           <Tabs
@@ -28,13 +29,13 @@ export const NavBar = () => {
           >
             <TabsList>
               <TabsTrigger className={cn(value === "/" && "dark")} value="/">
-                Integradores
+                <Link href="/">Integradores</Link>
               </TabsTrigger>
               <TabsTrigger
-                className={cn(value === "/hogar" && "dark")}
-                value="/hogar"
+                className={cn(value === "/#hogar" && "dark")}
+                value="/#hogar"
               >
-                Hogar y vecindario
+                <Link href="/#hogar">Hogar y vecindario</Link>
               </TabsTrigger>
               <TabsTrigger
                 className={cn(value === "/#casos" && "dark")}

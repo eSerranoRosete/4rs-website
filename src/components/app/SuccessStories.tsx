@@ -77,6 +77,8 @@ export const SuccessStories = ({
         className
       )}
     >
+      <div className="absolute top-0 right-0 w-10 h-full bg-gradient-to-l from-background to-transparent z-20"></div>
+      <div className="absolute top-0 left-0 w-10 h-full bg-gradient-to-r from-background to-transparent z-20"></div>
       <ul
         ref={scrollerRef}
         className={cn(
