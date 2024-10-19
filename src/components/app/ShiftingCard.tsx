@@ -1,6 +1,5 @@
 "use client";
 
-import { Dots } from "./Dots";
 import { ParallaxImg } from "./ParallaxImg";
 
 type Props = {
