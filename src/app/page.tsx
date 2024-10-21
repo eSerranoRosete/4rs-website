@@ -8,7 +8,6 @@ import { NavBar } from "@/components/app/Navbar";
 import { PageSection } from "@/components/app/PageSection";
 import { ParallaxImg } from "@/components/app/ParallaxImg";
 import { ShiftingCard } from "@/components/app/ShiftingCard";
-import Slideshow from "@/components/app/Slideshow";
 import { StatsCounter } from "@/components/app/StatsCounter";
 import { SuccessStories } from "@/components/app/SuccessStories";
 import { Title } from "@/components/app/Title";
