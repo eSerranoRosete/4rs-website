@@ -8,6 +8,7 @@ import { NavBar } from "@/components/app/Navbar";
 import { PageSection } from "@/components/app/PageSection";
 import { ParallaxImg } from "@/components/app/ParallaxImg";
 import { ShiftingCard } from "@/components/app/ShiftingCard";
+import Slideshow from "@/components/app/Slideshow";
 import { StatsCounter } from "@/components/app/StatsCounter";
 import { SuccessStories } from "@/components/app/SuccessStories";
 import { Title } from "@/components/app/Title";
@@ -36,12 +37,12 @@ export default function Home() {
 
           <Container>
             <div className="m-auto flex items h-full px-6 text-white relative z-20">
-              <div className="flex flex-col gap-10 justify-center">
-                <h1 className="text-center md:text-left text-6xl md:text-8xl max-w-4xl font-semibold tracking-tight text-balance">
+              <div className="flex flex-col gap-10 justify-center self-start md:self-auto pt-20 md:pt-0">
+                <h1 className="text-center md:text-left text-5xl md:text-8xl max-w-4xl font-semibold tracking-tight text-balance">
                   Tu socio en seguridad y monitoreo.
                 </h1>
 
-                <p className="text-center md:text-left text-xl antialiased rounded-tl-2xl max-w-xl p-3">
+                <p className="text-center md:text-left text-base md:text-xl antialiased rounded-tl-2xl max-w-xl p-3">
                   Desarrollamos dispositivos y soluciones de seguridad y
                   monitoreo que abarcan desde la protección residencial hasta la
                   infraestructura de ciudades inteligentes.
@@ -84,7 +85,7 @@ export default function Home() {
         </div>
       </PageSection>
 
-      <PageSection className="h-full md:h-screen">
+      <PageSection className="h-full md:h-screen md:max-h-[900px]">
         <Container>
           <div className="flex flex-col gap-8 w-full h-full">
             <Title>
@@ -327,7 +328,7 @@ export default function Home() {
           </Title>
 
           <div className="grid grow md:grid-cols-2 gap-6 mt-5">
-            <div className="relative overflow-hidden cursor-pointer aspect-square md:aspect-auto">
+            <div className="relative overflow-hidden cursor-pointer aspect-square md:aspect-auto rounded-xl">
               <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black/40 to-black via-transparent z-10" />
 
               <span className="absolute top-3 right-3 text-white text-lg border-t border-r border-t-white border-r-white rounded-tr-2xl p-2 z-10">
@@ -343,7 +344,7 @@ export default function Home() {
                 4Ever Tech Solutions - Equipos y monitoreo para integradores
               </h3>
             </div>
-            <div className="relative overflow-hidden cursor-pointer aspect-square md:aspect-auto">
+            <div className="relative overflow-hidden cursor-pointer aspect-square md:aspect-auto rounded-xl">
               <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black/40 to-black via-transparent z-10" />
 
               <span className="absolute top-3 right-3 text-white text-lg border-t border-r border-t-white border-r-white rounded-tr-2xl p-2 z-10">
@@ -351,7 +352,7 @@ export default function Home() {
               </span>
 
               <ParallaxImg
-                src="/product-line/ajax-share.jpg"
+                src="/product-line/62acdc71c3d1469e8aa8be94358a7026_01102024053619.jpeg"
                 alt="Mexico city skyline"
                 className="w-full h-full object-cover object-center absolute top-0 left-0"
               />
