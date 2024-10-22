@@ -15,7 +15,7 @@ export const ContactBanner = () => {
 
       <Container>
         <div className="relative z-20 flex flex-col md:flex-row items-center justify-center md:justify-between text-center md:text-left">
-          <h2 className="text-3xl md:text-7xl text-white font-bold mb-8 text-balance md:w-2/3">
+          <h2 className="text-3xl md:text-7xl font-bold mb-8 text-balance md:w-2/3">
             ¿Qué podemos ayudarte a lograr?
           </h2>
           <Link href="/contact" className="flex items-center gap-2">
