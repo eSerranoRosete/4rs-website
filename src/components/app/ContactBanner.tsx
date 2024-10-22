@@ -1,8 +1,7 @@
+import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import { PageSection } from "./PageSection";
 import { Container } from "./Container";
-import { ArrowRightIcon, ChevronLeft, ChevronRight } from "lucide-react";
+import { PageSection } from "./PageSection";
 
 export const ContactBanner = () => {
   return (
