@@ -48,7 +48,7 @@ export const NavBar = () => {
           </Tabs>
 
           <Button asChild className="hidden md:inline-flex">
-            <Link href="/">
+            <Link href="/contact">
               Contacto
               <ArrowRight />
             </Link>

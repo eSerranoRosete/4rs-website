@@ -1,12 +1,14 @@
 "use client";
 
 import { CertificationsCard } from "@/components/app/CertificationsCard";
+import { ContactBanner } from "@/components/app/ContactBanner";
 import { Container } from "@/components/app/Container";
 import { FeatureCard } from "@/components/app/FeatureCard";
 import { Footer } from "@/components/app/Footer";
 import { NavBar } from "@/components/app/Navbar";
 import { PageSection } from "@/components/app/PageSection";
 import { ParallaxImg } from "@/components/app/ParallaxImg";
+import { ProductLineCard } from "@/components/app/ProductLineCard";
 import { ShiftingCard } from "@/components/app/ShiftingCard";
 import { StatsCounter } from "@/components/app/StatsCounter";
 import { SuccessStories } from "@/components/app/SuccessStories";
@@ -34,9 +36,9 @@ export default function Home() {
             />
           </div>
 
-          <Container>
+          <Container className="flex flex-col md:block items-center justify-center h-full">
             <div className="m-auto flex items h-full px-6 text-white relative z-20">
-              <div className="flex flex-col gap-10 justify-center self-start md:self-auto pt-20 md:pt-0">
+              <div className="flex flex-col gap-10 justify-center">
                 <h1 className="text-center md:text-left text-5xl md:text-8xl max-w-4xl font-semibold tracking-tight text-balance">
                   Tu socio en seguridad y monitoreo.
                 </h1>
@@ -48,7 +50,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="absolute bottom-10 md:right-10 md:translate-x-0 z-10 flex items-center md:gap-10 gap-5 flex-wrap justify-center left-1/2 -translate-x-1/2 right-auto">
+            <div className="scale-90 relative md:absolute bottom-5 md:bottom-10 md:right-10 z-10 flex items-center md:gap-10 gap-5 flex-wrap justify-center">
               <img
                 src="/product-logos/4everalertlogow.png"
                 alt="4ever-alert logo"
@@ -88,7 +90,11 @@ export default function Home() {
         <Container>
           <div className="flex flex-col gap-8 w-full h-full">
             <Title>
-              ¿Qué se necesita para hacer que alguien esté y se sienta seguro?
+              ¿Qué se necesita para hacer que{" "}
+              <span className="text-brand">
+                alguien esté y se sienta seguro
+              </span>
+              ?
             </Title>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -126,7 +132,10 @@ export default function Home() {
       <PageSection>
         <Container>
           <div className="flex flex-col text-center justify-between gap-6 items-center">
-            <Title>Nuestra Trayectoria: Experiencia y Reconocimiento</Title>
+            <Title>
+              Nuestra <span className="text-brand">Trayectoria</span>:
+              Experiencia y Reconocimiento
+            </Title>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -201,7 +210,8 @@ export default function Home() {
         <Container>
           <div>
             <Title>
-              Estamos certificados en una amplia gama de disciplinas clave
+              Estamos <span className="text-brand">certificados</span> en una
+              amplia gama de disciplinas clave
             </Title>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -303,6 +313,7 @@ export default function Home() {
             bottomIcon={CloudIcon}
           />
           <ShiftingCard
+            inverted
             title="Somos la empresa líder en el país en la transformación de centros de monitoreo C2, C4 y C5 en centros inteligentes C4i y C5i."
             description="Estos centros avanzados incorporan inteligencia artificial, análisis de vídeo inteligente, drones tácticos y salas de crisis diseñadas para combatir la delincuencia de manera más efectiva y eficiente. Además, garantizamos la seguridad en la gestión de información de datos y ofrecemos protección avanzada en ciberseguridad, asegurando la integridad y la privacidad de la información."
             imgUrl="/c7c2f7921ffe4fe0bb5580b5cb7807b3_01102024052956.png"
@@ -322,46 +333,38 @@ export default function Home() {
       <PageSection id="hogar" fullHeight className="h-full md:h-screen">
         <Container className="flex flex-col gap-6">
           <Title>
-            Nuestras marcas te apoyan: Equipos de seguridad, accesorios y
-            monitoreo 24/7
+            Nuestras <span className="text-brand">marcas</span> te apoyan:
           </Title>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            className="max-w-2xl text-lg text-balance p-2 m-auto text-center"
+          >
+            Equipos de seguridad, accesorios y monitoreo 24/7
+          </motion.p>
+
           <div className="grid grow md:grid-cols-2 gap-6 mt-5">
-            <div className="relative overflow-hidden cursor-pointer aspect-square md:aspect-auto rounded-xl">
-              <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black/40 to-black via-transparent z-10" />
+            <ProductLineCard
+              title="4Ever Tech Solutions"
+              description="Equipos y monitoreo para integradores"
+              imgUrl="/product-line/6d66d2caa3834b42b3f86d682bc1e44a_01102024053541.jpeg"
+              bgColor="#E7E7E7"
+            />
 
-              <span className="absolute top-3 right-3 text-white text-lg border-t border-r border-t-white border-r-white rounded-tr-2xl p-2 z-10">
-                Para Integradores
-              </span>
-
-              <ParallaxImg
-                src="/product-line/6d66d2caa3834b42b3f86d682bc1e44a_01102024053541.jpeg"
-                alt="Mexico city skyline"
-                className="w-full h-full object-cover object-center absolute top-0 left-0"
-              />
-              <h3 className="text-center md:text-left text-2xl md:text-4xl text-balance text-white font-bold z-10 md:absolute bottom-10 md:left-10">
-                4Ever Tech Solutions - Equipos y monitoreo para integradores
-              </h3>
-            </div>
-            <div className="relative overflow-hidden cursor-pointer aspect-square md:aspect-auto rounded-xl">
-              <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black/40 to-black via-transparent z-10" />
-
-              <span className="absolute top-3 right-3 text-white text-lg border-t border-r border-t-white border-r-white rounded-tr-2xl p-2 z-10">
-                Para Individuos
-              </span>
-
-              <ParallaxImg
-                src="/product-line/62acdc71c3d1469e8aa8be94358a7026_01102024053619.jpeg"
-                alt="Mexico city skyline"
-                className="w-full h-full object-cover object-center absolute top-0 left-0"
-              />
-              <h3 className="text-center md:text-left text-2xl md:text-4xl text-balance text-white font-bold z-10 md:absolute bottom-10 md:left-10">
-                4Ever Alert - Equipos y monitoreo para hogar y vecindario
-              </h3>
-            </div>
+            <ProductLineCard
+              title="4Ever Alert"
+              description="Equipos y monitoreo para hogar y vecindario"
+              imgUrl="/product-line/62acdc71c3d1469e8aa8be94358a7026_01102024053619.jpeg"
+              bgColor="#000"
+            />
           </div>
         </Container>
       </PageSection>
+
+      <ContactBanner />
 
       <Footer />
     </main>
