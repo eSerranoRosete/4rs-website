@@ -20,25 +20,13 @@ export default function Page() {
           />
           <div className="w-full h-full bg-gradient-to-t from-black/70 text-white to-transparent py-72 px-10 flex flex-col gap-2 items-center">
             <div className="absolute md:left-1/2 md:-translate-x-1/2 flex flex-col gap-6">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                viewport={{ once: true }}
-                className="text-3xl md:text-5xl text-center font-semibold md:max-w-4xl md:m-auto"
-              >
+              <h1 className="text-3xl md:text-5xl text-center font-semibold md:max-w-4xl md:m-auto">
                 Descubre cómo hemos ayudado a nuestros clientes a alcanzar el
                 éxito con nuestras soluciones
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                viewport={{ once: true }}
-                className="text-center md:text-xl"
-              >
+              </h1>
+              <p className="text-center md:text-xl">
                 Implementaciones y monitoreo que brindan seguridad y confianza
-              </motion.p>
+              </p>
             </div>
           </div>
         </Container>
