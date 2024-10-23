@@ -20,7 +20,7 @@ export const Carousel = ({ items }: Props) => {
   });
 
   return (
-    <div className="pt-20 flex flex-col w-full h-full">
+    <div className="md:pt-20 flex flex-col w-full h-full">
       {!singleImage && (
         <div className="py-4 flex items-center justify-center gap-3">
           {items.map((_, i) => (

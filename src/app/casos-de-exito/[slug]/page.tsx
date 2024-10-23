@@ -37,7 +37,7 @@ export default function Page({ params }: Props) {
               Ver más casos de éxito
             </Link>
           </Button>
-          <div className="flex flex-col md:flex-row text-center md:text-left gap-10 items-center mt-32 md:mt-0">
+          <div className="flex flex-col-reverse md:flex-row text-center md:text-left gap-10 items-center mt-6 md:mt-0">
             <div className="w-full md:w-1/2 flex flex-col gap-4">
               <h1 className="text-4xl md:text-6xl font-semibold text-balance">
                 {caseStudy.title}

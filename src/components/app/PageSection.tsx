@@ -20,7 +20,7 @@ export const PageSection = ({
       id={id}
       className={cn(
         "w-full p-6 relative mb-10",
-        fullHeight && "md:max-h-[900px] h-screen",
+        fullHeight && "!md:max-h-[900px] h-screen",
         noPadding && "p-0",
         className
       )}

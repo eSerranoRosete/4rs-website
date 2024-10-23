@@ -277,7 +277,7 @@ export default function Home() {
             <Button
               size="lg"
               asChild
-              className="absolute right-0 top-1/2 -translate-y-1/2 text-md"
+              className="md:absolute md:right-0 top-1/2 w-full md:w-fit mt-5 md:mt-0 md:-translate-y-1/2 text-md"
               variant="outline"
             >
               <Link href="/casos-de-exito" className="gap-2 float-right">
@@ -347,6 +347,35 @@ export default function Home() {
               description="Equipos y monitoreo para hogar y vecindario"
               imgUrl="/product-line/62acdc71c3d1469e8aa8be94358a7026_01102024053619.jpeg"
               bgColor="#000"
+            />
+          </div>
+        </Container>
+      </PageSection>
+
+      <PageSection className="md:h-screen h-full">
+        <Container className="w-full h-full flex flex-col md:grid md:grid-cols-4 md:grid-rows-3 gap-6">
+          <div className="col-span-2 flex items-center justify-center">
+            <Title>
+              <span className="text-brand">Certificaciones y Premios</span> que
+              nos han brindado
+            </Title>
+          </div>
+          <div className="col-start-3 col-span-2 row-span-full rounded-xl overflow-hidden">
+            <img
+              src="/588af169be0b4689ab86b210ddbd58c9_01102024053357.png"
+              className="h-full object-cover object-top rounded-xl m-auto"
+            />
+          </div>
+          <div className=" row-span-2 col-start-1 row-start-2">
+            <img
+              src="/39072982d5554eaaaaf0fbd8adf62689_01102024053356.png"
+              className="h-full w-full object-cover object-center rounded-xl"
+            />
+          </div>
+          <div className=" row-span-2 col-start-2 row-start-2">
+            <img
+              src="/e64056eada4742d2a5ee7d0c192a6fb9_01102024053357.png"
+              className="h-full w-full object-cover object-center rounded-xl"
             />
           </div>
         </Container>
