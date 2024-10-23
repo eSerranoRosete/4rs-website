@@ -13,9 +13,18 @@ import { ShiftingCard } from "@/components/app/ShiftingCard";
 import { StatsCounter } from "@/components/app/StatsCounter";
 import { SuccessStories } from "@/components/app/SuccessStories";
 import { Title } from "@/components/app/Title";
+import { Button } from "@/components/ui/button";
+import { successStories } from "@/data/successStories";
 import { LightningBoltIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
-import { CctvIcon, CloudIcon, MonitorIcon, ShieldIcon } from "lucide-react";
+import {
+  ArrowRightIcon,
+  CctvIcon,
+  CloudIcon,
+  MonitorIcon,
+  ShieldIcon,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -152,7 +161,7 @@ export default function Home() {
             <div className="p-6 text-center md:text-left row-span-full rounded-xl flex flex-col bg-muted relative overflow-hidden">
               <ParallaxImg
                 src="/world-dots.png"
-                className="absolute w-full h-full top-0 left-0 bg-cover bg-center mix-blend-overlay"
+                className="absolute w-full h-full top-0 left-0 bg-cover bg-center"
               />
               <div className="z-10 flex flex-col gap-6">
                 <p className="text-6xl font-bold tracking-tight">
@@ -260,46 +269,25 @@ export default function Home() {
 
       <PageSection id="casos" fullHeight>
         <Container className="flex flex-col gap-6">
-          <Title>
-            Casos de éxito: Ayudamos a nuestros clientes a alcanzar sus
-            objetivos.
-          </Title>
+          <div className="relative">
+            <Title>
+              Ayudamos a nuestros clientes a alcanzar sus objetivos.
+            </Title>
 
-          <SuccessStories
-            speed="slow"
-            items={[
-              {
-                hint: "Ciudad de México",
-                title: "Gremio Funerario",
-                imgurl:
-                  "/success-stories/m_t_955b1e68c6fc4576a855649fb84f18c3_06102024030102.png",
-              },
-              {
-                hint: "Ciudad de México",
-                title: "4Ever Secure",
-                imgurl:
-                  "/success-stories/m_t_ca669f90b5b144b5aa6af8aca5d8d77a_06102024030534.png",
-              },
-              {
-                hint: "Ciudad de México",
-                title: "Centro de monitoreo C4i",
-                imgurl:
-                  "/success-stories/m_t_66f7a99c936c48caae298ea43e162786_06102024030646.png",
-              },
-              {
-                hint: "Ciudad de México",
-                title: "C4i Municipal de la Ciudad de México",
-                imgurl:
-                  "/success-stories/m_t_1e75c489adea4c868b612c61bda5c971_06102024030746.jpeg.png",
-              },
-              {
-                hint: "Ciudad de México",
-                title: "Centro de Control y Comando",
-                imgurl:
-                  "/success-stories/m_t_d26d3863e85e433d81888a28fe5219d1_06102024030853.png",
-              },
-            ]}
-          />
+            <Button
+              size="lg"
+              asChild
+              className="absolute right-0 top-1/2 -translate-y-1/2 text-md"
+              variant="outline"
+            >
+              <Link href="/casos-de-exito" className="gap-2 float-right">
+                Ver casos de éxito
+                <ArrowRightIcon />
+              </Link>
+            </Button>
+          </div>
+
+          <SuccessStories speed="slow" items={successStories} />
         </Container>
       </PageSection>
 

@@ -6,6 +6,15 @@ import {
   SuccessStoryCard,
   type Props as SuccessStoryCardProps,
 } from "./SuccessStoryCard";
+import { IFSuccessStory } from "@/types/CasesTypes";
+
+type Props = {
+  items: IFSuccessStory[];
+  direction?: "left" | "right";
+  speed?: "fast" | "normal" | "slow";
+  pauseOnHover?: boolean;
+  className?: string;
+};
 
 export const SuccessStories = ({
   items,
@@ -13,13 +22,7 @@ export const SuccessStories = ({
   speed = "fast",
   pauseOnHover = true,
   className,
-}: {
-  items: SuccessStoryCardProps[];
-  direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
-  pauseOnHover?: boolean;
-  className?: string;
-}) => {
+}: Props) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
 
@@ -88,7 +91,7 @@ export const SuccessStories = ({
         )}
       >
         {items.map((item) => (
-          <SuccessStoryCard key={item.title} {...item} />
+          <SuccessStoryCard key={item.title} item={item} />
         ))}
       </ul>
     </div>

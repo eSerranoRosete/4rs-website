@@ -9,25 +9,27 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useCallback } from "react";
 
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
 
+  const handleChange = useCallback(
+    (val: string) => {
+      setTheme(val);
+    },
+    [setTheme]
+  );
+
   return (
-    <Select onValueChange={(val) => setTheme(val)} defaultValue={theme}>
+    <Select onValueChange={handleChange} defaultValue={theme || "system"}>
       <SelectTrigger className="text-xs">
-        <SelectValue defaultValue={theme} />
+        <SelectValue />
       </SelectTrigger>
       <SelectContent className="!text-xs">
-        <SelectItem value="light" onClick={() => setTheme("light")}>
-          Claro
-        </SelectItem>
-        <SelectItem value="dark" onClick={() => setTheme("dark")}>
-          Oscuro
-        </SelectItem>
-        <SelectItem value="system" onClick={() => setTheme("system")}>
-          Sistema
-        </SelectItem>
+        <SelectItem value="light">Claro</SelectItem>
+        <SelectItem value="dark">Oscuro</SelectItem>
+        <SelectItem value="system">Sistema</SelectItem>
       </SelectContent>
     </Select>
   );

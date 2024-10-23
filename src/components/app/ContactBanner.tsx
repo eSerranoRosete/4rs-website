@@ -18,7 +18,7 @@ export const ContactBanner = () => {
           <h2 className="text-3xl md:text-7xl font-bold mb-8 text-balance md:w-2/3">
             ¿Qué podemos ayudarte a lograr?
           </h2>
-          <Link href="/contact" className="flex items-center gap-2">
+          <Link href="/contacto" className="flex items-center gap-2">
             <span className="inline-block md:text-xl">Contáctanos</span>
             <span className="w-16 h-16 flex items-center justify-center bg-white/30 rounded-full animate-pulse">
               <span className="w-10 h-10 inline-flex rounded-full bg-white text-brand items-center justify-center">
