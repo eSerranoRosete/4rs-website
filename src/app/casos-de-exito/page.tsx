@@ -6,7 +6,6 @@ import { Footer } from "@/components/app/Footer";
 import { NavBar } from "@/components/app/Navbar";
 import { PageSection } from "@/components/app/PageSection";
 import { successStories } from "@/data/successStories";
-import { motion } from "framer-motion";
 
 export default function Page() {
   return (
