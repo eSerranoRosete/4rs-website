@@ -25,6 +25,7 @@ export const Carousel = ({ items }: Props) => {
         <div className="py-4 flex items-center justify-center gap-3">
           {items.map((_, i) => (
             <button
+              key={i}
               onClick={() => counter.setCount(i)}
               className={cn(
                 "w-4 h-4 bg-muted rounded-full border",

@@ -13,8 +13,6 @@ import {
   Sheet,
   SheetContent,
   SheetDescription,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
@@ -86,6 +84,7 @@ export const NavBar = () => {
                   {navItems.map((item) => (
                     <Button
                       asChild
+                      key={item.href}
                       variant={value === item.href ? "default" : "secondary"}
                     >
                       <Link

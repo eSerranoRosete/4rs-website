@@ -1,9 +1,8 @@
 "use client";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ParallaxImg } from "./ParallaxImg";
-import Link from "next/link";
 import { IFSuccessStory } from "@/types/CasesTypes";
+import Link from "next/link";
+import { ParallaxImg } from "./ParallaxImg";
 
 export type Props = {
   item: IFSuccessStory;

@@ -1,12 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
-import {
-  SuccessStoryCard,
-  type Props as SuccessStoryCardProps,
-} from "./SuccessStoryCard";
 import { IFSuccessStory } from "@/types/CasesTypes";
+import React, { useEffect, useState } from "react";
+import { SuccessStoryCard } from "./SuccessStoryCard";
 
 type Props = {
   items: IFSuccessStory[];
