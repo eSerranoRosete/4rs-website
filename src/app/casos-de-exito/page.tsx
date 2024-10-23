@@ -10,10 +10,10 @@ import { motion } from "framer-motion";
 
 export default function Page() {
   return (
-    <main>
+    <>
       <NavBar />
-      <PageSection className="mt-14">
-        <Container className="h-full rounded-xl relative overflow-hidden">
+      <PageSection className="pt-14">
+        <Container className="rounded-xl relative overflow-hidden">
           <img
             src="/Office_Workers_Laughing_original_548606.jpg"
             className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
@@ -35,7 +35,7 @@ export default function Page() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 viewport={{ once: true }}
-                className="text-center text-xl"
+                className="text-center md:text-xl"
               >
                 Implementaciones y monitoreo que brindan seguridad y confianza
               </motion.p>
@@ -46,7 +46,7 @@ export default function Page() {
 
       <PageSection>
         <Container>
-          <div className="w-full h-full grid md:grid-cols-2 lg:md-cols-3 mt-10 gap-10">
+          <div className="w-full h-full grid md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10">
             {successStories.map((c, i) => (
               <CaseStudyPreview key={i} item={c} />
             ))}
@@ -54,6 +54,6 @@ export default function Page() {
         </Container>
       </PageSection>
       <Footer />
-    </main>
+    </>
   );
 }
