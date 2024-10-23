@@ -161,7 +161,7 @@ export default function Home() {
             <div className="p-6 text-center md:text-left row-span-full rounded-xl flex flex-col bg-muted relative overflow-hidden">
               <ParallaxImg
                 src="/world-dots.png"
-                className="absolute w-full h-full top-0 left-0 bg-cover bg-center"
+                className="absolute w-full h-full top-0 left-0 bg-cover bg-center opacity-25"
               />
               <div className="z-10 flex flex-col gap-6">
                 <p className="text-6xl font-bold tracking-tight">

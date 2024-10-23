@@ -17,9 +17,9 @@ export default function Page() {
             src="/Office_Workers_Laughing_original_548606.jpg"
             className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
           />
-          <div className="w-full h-full bg-gradient-to-t from-black/70 text-white to-transparent py-72 px-10 flex flex-col gap-2 items-center">
-            <div className="absolute md:left-1/2 md:-translate-x-1/2 flex flex-col gap-6">
-              <h1 className="text-3xl md:text-5xl text-center font-semibold md:max-w-4xl md:m-auto">
+          <div className="w-full bg-gradient-to-t from-black/70 text-white to-transparent h-screen md:h-[60vh] px-10 pb-20 flex flex-col gap-2 items-center justify-end">
+            <div className="flex flex-col gap-6 w-full">
+              <h1 className="text-2xl md:text-5xl text-center font-semibold md:max-w-4xl md:m-auto">
                 Descubre cómo hemos ayudado a nuestros clientes a alcanzar el
                 éxito con nuestras soluciones
               </h1>
