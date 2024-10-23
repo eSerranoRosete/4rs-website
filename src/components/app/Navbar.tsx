@@ -31,7 +31,7 @@ const navItems: NavItem[] = [
 export const NavBar = () => {
   const [value, setValue] = useState("/");
 
-  const { isOpen, onOpen, onClose, onOpenChange } = useIsOpen();
+  const { isOpen, onClose, onOpenChange } = useIsOpen();
 
   const pathname = usePathname();
 
@@ -78,7 +78,7 @@ export const NavBar = () => {
           </Button>
 
           <Sheet open={isOpen} onOpenChange={onOpenChange}>
-            <SheetTrigger className="md:hidden absolute top-3 right-0">
+            <SheetTrigger className="md:hidden absolute top-3 right-0 text-foreground">
               <MenuIcon />
             </SheetTrigger>
             <SheetContent>
@@ -88,14 +88,14 @@ export const NavBar = () => {
                     <Button
                       asChild
                       key={item.href}
-                      variant={value === item.href ? "default" : "secondary"}
+                      variant={value === item.href ? "secondary" : "outline"}
                       onClick={onClose}
                     >
                       <Link
                         key={item.href}
                         href={item.href}
                         className={cn(
-                          "text-white text-lg",
+                          "text-lg",
                           value === item.href && "text-primary"
                         )}
                       >
