@@ -15,6 +15,7 @@ import {
   SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useIsOpen } from "../hooks/useIsOpen";
 
 type NavItem = {
   label: string;
@@ -29,6 +30,8 @@ const navItems: NavItem[] = [
 
 export const NavBar = () => {
   const [value, setValue] = useState("/");
+
+  const { isOpen, onOpen, onClose, onOpenChange } = useIsOpen();
 
   const pathname = usePathname();
 
@@ -74,7 +77,7 @@ export const NavBar = () => {
             </Link>
           </Button>
 
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={onOpenChange}>
             <SheetTrigger className="md:hidden absolute top-3 right-0">
               <MenuIcon />
             </SheetTrigger>
@@ -86,6 +89,7 @@ export const NavBar = () => {
                       asChild
                       key={item.href}
                       variant={value === item.href ? "default" : "secondary"}
+                      onClick={onClose}
                     >
                       <Link
                         key={item.href}
