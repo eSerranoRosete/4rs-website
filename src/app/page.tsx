@@ -1,6 +1,7 @@
 "use client";
 
 import { CertificationsCard } from "@/components/app/CertificationsCard";
+import { Clients } from "@/components/app/Clients";
 import { ContactBanner } from "@/components/app/ContactBanner";
 import { Container } from "@/components/app/Container";
 import { FeatureCard } from "@/components/app/FeatureCard";
@@ -28,38 +29,38 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col gap-20">
       <NavBar />
 
       <PageSection fullHeight noPadding>
-        <div className="relative w-full h-full overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+        <div className="relative h-full w-full overflow-hidden">
+          <div className="absolute left-0 top-0 h-full w-full">
+            <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-t from-black/90 to-transparent"></div>
             <video
               src="/Digital_Tablet_With_CCTV_Camera_Footage_fhd_1651915.mp4"
               muted
               loop
               playsInline
               autoPlay
-              className="absolute top-0 left-0 w-full h-full object-cover object-center"
+              className="absolute left-0 top-0 h-full w-full object-cover object-center"
             />
           </div>
 
-          <Container className="flex flex-col md:block items-center justify-center h-full">
-            <div className="m-auto flex items h-full px-6 text-white relative z-20">
-              <div className="flex flex-col gap-10 justify-center">
-                <h1 className="text-center md:text-left text-5xl md:text-8xl max-w-4xl font-semibold tracking-tight text-balance">
+          <Container className="flex h-full flex-col items-center justify-center md:block">
+            <div className="items relative z-20 m-auto flex h-full px-6 text-white">
+              <div className="flex flex-col justify-center gap-10">
+                <h1 className="max-w-4xl text-balance text-center text-5xl font-semibold tracking-tight md:text-left md:text-8xl">
                   Tu socio en seguridad y monitoreo.
                 </h1>
 
-                <p className="text-center md:text-left text-base md:text-xl antialiased rounded-tl-2xl max-w-xl p-3">
+                <p className="max-w-xl rounded-tl-2xl p-3 text-center text-base antialiased md:text-left md:text-xl">
                   Desarrollamos dispositivos y soluciones de seguridad y
                   monitoreo que abarcan desde la protección residencial hasta la
                   infraestructura de ciudades inteligentes.
                 </p>
               </div>
             </div>
-            <div className="scale-90 relative md:absolute bottom-5 md:bottom-10 md:right-10 z-10 flex items-center md:gap-10 gap-5 flex-wrap justify-center">
+            <div className="relative bottom-5 z-10 flex scale-90 flex-wrap items-center justify-center gap-5 md:absolute md:bottom-10 md:right-10 md:gap-10">
               <img
                 src="/product-logos/4everalertlogow.png"
                 alt="4ever-alert logo"
@@ -95,9 +96,9 @@ export default function Home() {
         </div>
       </PageSection>
 
-      <PageSection className="h-full md:h-screen md:max-h-[900px]">
+      <PageSection className="h-full">
         <Container>
-          <div className="flex flex-col gap-8 w-full h-full">
+          <div className="flex h-full w-full flex-col gap-8">
             <Title>
               ¿Qué se necesita para hacer que{" "}
               <span className="text-brand">
@@ -110,12 +111,12 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="max-w-2xl m-auto text-center text-lg text-balance p-2"
+              className="m-auto max-w-2xl text-balance p-2 text-center text-lg"
             >
               Durante más de 15 años, nos hemos dedicado a ofrecer a nuestros
               clientes una mayor sensación de seguridad
             </motion.p>
-            <div className="grid md:grid-cols-3 gap-6 grow">
+            <div className="grid grow gap-6 md:grid-cols-3">
               <FeatureCard
                 title="360 grados de cobertura"
                 description="Cada minuto del día"
@@ -140,7 +141,7 @@ export default function Home() {
 
       <PageSection>
         <Container>
-          <div className="flex flex-col text-center justify-between gap-6 items-center">
+          <div className="mb-5 flex flex-col items-center justify-between gap-6 text-center">
             <Title>
               Nuestra <span className="text-brand">Trayectoria</span>:
               Experiencia y Reconocimiento
@@ -150,18 +151,18 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="max-w-2xl text-lg text-balance p-2"
+              className="max-w-2xl text-balance p-2 text-lg"
             >
               Nuestra misión es crear una atmósfera de tranquilidad, confort y
               seguridad para nuestros clientes.
             </motion.p>
           </div>
 
-          <div className="grid md:grid-cols-3 md:grid-rows-3 gap-6 mt-10">
-            <div className="p-6 text-center md:text-left row-span-full rounded-xl flex flex-col bg-muted relative overflow-hidden">
+          <div className="grid gap-6 md:grid-cols-3 md:grid-rows-3">
+            <div className="relative row-span-full flex flex-col overflow-hidden rounded-xl bg-muted p-6 text-center md:text-left">
               <ParallaxImg
                 src="/world-dots.png"
-                className="absolute w-full h-full top-0 left-0 bg-cover bg-center opacity-25"
+                className="absolute left-0 top-0 h-full w-full bg-cover bg-center opacity-25"
               />
               <div className="z-10 flex flex-col gap-6">
                 <p className="text-6xl font-bold tracking-tight">
@@ -169,25 +170,25 @@ export default function Home() {
                 </p>
                 <p className="text-lg">— A nivel Latinoamérica</p>
               </div>
-              <div className="mt-auto z-10">
+              <div className="z-10 mt-auto">
                 <p className="text-xl">
                   Estamos transformando la industria y posicionándonos para ser
                   el líder indiscutible como integrador número uno en
                   Latinoamérica.
-                  <span className="text-sm block">
+                  <span className="block text-sm">
                     * Nombrado por Más Seguridad en 2018
                   </span>
                 </p>
               </div>
             </div>
-            <div className="p-6 rounded-xl aspect-square md:aspect-auto row-span-2 relative overflow-hidden">
+            <div className="relative row-span-2 aspect-square overflow-hidden rounded-xl p-6 md:aspect-auto">
               <ParallaxImg
                 src="/a22cf07054c14f4484fd06af19256285_01102024052701.jpeg"
-                className="w-full h-full object-cover object-center absolute top-0 left-0 rounded-xl"
+                className="absolute left-0 top-0 h-full w-full rounded-xl object-cover object-center"
               />
             </div>
-            <div className="p-6 rounded-xl flex items-center bg-muted">
-              <div className="text-center m-auto">
+            <div className="flex items-center rounded-xl bg-muted p-6">
+              <div className="m-auto text-center">
                 <p className="text-8xl font-bold tracking-tight text-brand">
                   <StatsCounter from={0} to={142} suffix="+" />
                 </p>
@@ -196,14 +197,14 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="p-6 rounded-xl aspect-square md:aspect-auto row-span-2 relative overflow-hidden">
+            <div className="relative row-span-2 aspect-square overflow-hidden rounded-xl p-6 md:aspect-auto">
               <ParallaxImg
                 src="/upscaled-2x-17ca30d699624ffdb543872a1e4ca468_01102024052702.png"
-                className="w-full h-full object-cover object-center absolute top-0 left-0 rounded-xl"
+                className="absolute left-0 top-0 h-full w-full rounded-xl object-cover object-center"
               />
             </div>
-            <div className="p-6 rounded-xl flex items-center bg-muted">
-              <div className="text-center m-auto">
+            <div className="flex items-center rounded-xl bg-muted p-6">
+              <div className="m-auto text-center">
                 <p className="text-8xl font-bold tracking-tight text-brand">
                   <StatsCounter from={0} to={1471} suffix="+" increments={10} />
                 </p>
@@ -214,8 +215,7 @@ export default function Home() {
         </Container>
       </PageSection>
 
-      <PageSection className="flex flex-col pt-20">
-        <div className="absolute w-full h-full md:h-2/3 top-0 left-0 bg-muted -z-10"></div>
+      <PageSection className="flex flex-col bg-muted">
         <Container>
           <div>
             <Title>
@@ -227,12 +227,12 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="max-w-2xl text-lg text-balance p-2 m-auto text-center"
+              className="m-auto max-w-2xl text-balance p-2 text-center text-lg"
             >
               Para la seguridad y la gestión de operaciones, destacando en:
             </motion.p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 mt-20 grow">
+          <div className="mt-20 grid grow gap-6 md:grid-cols-3">
             <CertificationsCard
               icon={CctvIcon}
               title="Seguridad y Logística en Monitoreo"
@@ -267,31 +267,38 @@ export default function Home() {
         </Container>
       </PageSection>
 
-      <PageSection id="casos" fullHeight>
-        <Container className="flex flex-col gap-6">
-          <div className="relative">
+      <PageSection id="casos" noPadding>
+        <Container className="flex flex-col gap-6 p-6">
+          <div className="flex flex-col items-center justify-center gap-6">
             <Title>
-              Ayudamos a nuestros clientes a alcanzar sus objetivos.
+              Ayudamos a nuestros clientes a alcanzar sus{" "}
+              <span className="text-brand">objetivos</span>.
             </Title>
 
-            <Button
-              size="lg"
-              asChild
-              className="md:absolute md:right-0 top-1/2 w-full md:w-fit mt-5 md:mt-0 md:-translate-y-1/2 text-md"
-              variant="outline"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
             >
-              <Link href="/casos-de-exito" className="gap-2 float-right">
-                Ver casos de éxito
-                <ArrowRightIcon />
-              </Link>
-            </Button>
+              <Button size="lg" asChild variant="outline" className="m-auto">
+                <Link href="/casos-de-exito" className="float-right gap-2">
+                  Ver casos de éxito
+                  <ArrowRightIcon />
+                </Link>
+              </Button>
+            </motion.div>
           </div>
 
-          <SuccessStories speed="slow" items={successStories} />
+          <SuccessStories
+            pauseOnHover={false}
+            speed="slow"
+            items={successStories}
+          />
         </Container>
       </PageSection>
 
-      <PageSection className="text-foreground bg-muted">
+      <PageSection className="bg-muted text-foreground">
         <Container>
           <ShiftingCard
             title="Operamos como una estación central en la nube."
@@ -318,6 +325,24 @@ export default function Home() {
         </Container>
       </PageSection>
 
+      <PageSection className="light bg-background">
+        <Title className="light">
+          Experiencia con clientes{" "}
+          <span className="text-brand">internacionales</span>
+        </Title>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+          className="m-auto max-w-2xl text-balance p-2 text-center text-lg text-foreground"
+        >
+          Nuestros clientes internacionales confían en nosotros para proteger
+          sus activos y garantizar la seguridad de sus empleados.
+        </motion.p>
+        <Clients />
+      </PageSection>
+
       <PageSection id="hogar" fullHeight className="h-full md:h-screen">
         <Container className="flex flex-col gap-6">
           <Title>
@@ -329,12 +354,12 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
-            className="max-w-2xl text-lg text-balance p-2 m-auto text-center"
+            className="m-auto max-w-2xl text-balance p-2 text-center text-lg"
           >
             Equipos de seguridad, accesorios y monitoreo 24/7
           </motion.p>
 
-          <div className="grid grow md:grid-cols-2 gap-6 mt-5">
+          <div className="mt-5 grid grow gap-6 md:grid-cols-2">
             <ProductLineCard
               title="4Ever Tech Solutions"
               description="Equipos y monitoreo para integradores"
@@ -352,30 +377,27 @@ export default function Home() {
         </Container>
       </PageSection>
 
-      <PageSection className="md:h-screen h-full">
-        <Container className="w-full h-full flex flex-col md:grid md:grid-cols-4 md:grid-rows-3 gap-6">
-          <div className="col-span-2 flex items-center justify-center">
-            <Title>
-              <span className="text-brand">Certificaciones y Premios</span> que
-              nos han brindado
-            </Title>
-          </div>
-          <div className="col-start-3 col-span-2 row-span-full rounded-xl overflow-hidden">
-            <img
-              src="/588af169be0b4689ab86b210ddbd58c9_01102024053357.png"
-              className="h-full object-cover object-top rounded-xl m-auto"
-            />
-          </div>
-          <div className=" row-span-2 col-start-1 row-start-2">
+      <PageSection>
+        <Container className="flex flex-col gap-10">
+          <Title>
+            <span className="text-brand">Certificaciones y premios</span> que
+            nos han brindado
+          </Title>
+
+          <div className="grid gap-6 md:grid-cols-3">
             <img
               src="/39072982d5554eaaaaf0fbd8adf62689_01102024053356.png"
-              className="h-full w-full object-cover object-center rounded-xl"
+              className="w-full rounded-xl"
             />
-          </div>
-          <div className=" row-span-2 col-start-2 row-start-2">
+
             <img
               src="/e64056eada4742d2a5ee7d0c192a6fb9_01102024053357.png"
-              className="h-full w-full object-cover object-center rounded-xl"
+              className="w-full rounded-xl"
+            />
+
+            <img
+              src="/588af169be0b4689ab86b210ddbd58c9_01102024053357.png"
+              className="w-full rounded-xl"
             />
           </div>
         </Container>

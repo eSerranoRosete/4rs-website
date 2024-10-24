@@ -16,8 +16,8 @@ export const Title = ({ children, className }: Props) => {
       transition={{ delay: 0.2 }}
       viewport={{ once: true }}
       className={cn(
-        "text-4xl md:text-5xl text-center m-auto font-semibold tracking-tight max-w-3xl text-balance",
-        className
+        "m-auto max-w-3xl text-balance text-center text-4xl font-semibold tracking-tight text-foreground md:text-5xl",
+        className,
       )}
     >
       {children}

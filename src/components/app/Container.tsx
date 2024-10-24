@@ -1,14 +1,14 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-type Props = {
-  children?: React.ReactNode;
-  className?: string;
-};
+interface Props extends React.HTMLProps<HTMLDivElement> {}
 
-export const Container = ({ children, className }: Props) => {
+export const Container = ({ children, className, ...rest }: Props) => {
   return (
-    <div className={cn("w-full h-full container m-auto relative", className)}>
+    <div
+      {...rest}
+      className={cn("w-full h-full container m-auto relative", className)}
+    >
       {children}
     </div>
   );

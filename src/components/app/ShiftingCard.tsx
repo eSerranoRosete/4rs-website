@@ -22,33 +22,33 @@ export const ShiftingCard = ({
   bottomIcon: BottomIcon,
 }: Props) => {
   return (
-    <div className="w-full md:sticky top-0 py-20 flex flex-col gap-6 bg-muted">
-      <div className="grid md:grid-cols-5 gap-6">
+    <div className="top-0 flex w-full flex-col gap-6 bg-muted py-20 md:sticky">
+      <div className="grid gap-6 md:grid-cols-5">
         <div
-          className={`col-span-5 md:col-span-2 aspect-video md:aspect-square relative overflow-hidden rounded-xl ${
+          className={`relative col-span-5 aspect-video overflow-hidden rounded-xl md:col-span-2 md:aspect-square ${
             inverted ? "md:order-last" : ""
           }`}
         >
           <ParallaxImg
             src={imgUrl}
             alt="Shifting card image"
-            className="object-cover object-center absolute top-0 left-0 w-full h-full"
+            className="absolute left-0 top-0 h-full w-full object-cover object-center"
           />
         </div>
-        <div className="col-span-5 md:col-span-3 border-t border-foreground flex flex-col gap-6 justify-between relative">
-          <span className="absolute top-2 right-0 uppercase text-xs z-10">
+        <div className="relative col-span-5 flex flex-col justify-between gap-6 border-t border-foreground md:col-span-3">
+          <span className="absolute right-0 top-2 z-10 text-xs uppercase">
             {hint} —
           </span>
 
-          <h2 className="text-center md:text-left text-3xl md:text-4xl font-medium tracking-tight max-w-lg text-balance mt-10 z-10 relative">
+          <h2 className="relative z-10 mt-10 max-w-lg text-balance text-center text-3xl font-medium tracking-tight md:text-left md:text-4xl">
             {title}
           </h2>
 
-          <p className="text-center md:text-left text-xl font-light max-w-2xl relative z-10">
+          <p className="relative z-10 max-w-2xl text-center text-xl font-light md:text-left">
             {description}
           </p>
 
-          <BottomIcon className="hidden md:inline-block w-10 h-16 z-16 text-brand" />
+          <BottomIcon className="z-16 hidden h-16 w-10 text-brand md:inline-block" />
         </div>
       </div>
     </div>

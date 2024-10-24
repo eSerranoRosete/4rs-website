@@ -1,27 +1,28 @@
-"use client";
-
+import { internationalClientLogos } from "@/data/internationalClients";
 import { cn } from "@/lib/utils";
-import { IFSuccessStory } from "@/types/CasesTypes";
 import React, { useEffect, useState } from "react";
-import { SuccessStoryCard } from "./SuccessStoryCard";
 
 type Props = {
-  items: IFSuccessStory[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
   className?: string;
+  reverseItems?: boolean;
 };
 
-export const SuccessStories = ({
-  items,
+export const ClientCarousell = ({
   direction = "left",
-  speed = "fast",
+  speed = "normal",
   pauseOnHover = true,
   className,
+  reverseItems = false,
 }: Props) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
+
+  const items = reverseItems
+    ? internationalClientLogos.reverse()
+    : internationalClientLogos;
 
   useEffect(() => {
     addAnimation();
@@ -65,10 +66,11 @@ export const SuccessStories = ({
       } else if (speed === "normal") {
         containerRef.current.style.setProperty("--animation-duration", "40s");
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
+        containerRef.current.style.setProperty("--animation-duration", "400s");
       }
     }
   };
+
   return (
     <div
       ref={containerRef}
@@ -82,13 +84,18 @@ export const SuccessStories = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex h-full w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
+          "flex h-full w-max min-w-full shrink-0 flex-nowrap items-center gap-20",
           start && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
       >
-        {items.map((item) => (
-          <SuccessStoryCard key={item.title} item={item} />
+        {items.map((logo) => (
+          <img
+            key={logo}
+            src={logo}
+            alt="Client Logo"
+            className="h-full w-32"
+          />
         ))}
       </ul>
     </div>
