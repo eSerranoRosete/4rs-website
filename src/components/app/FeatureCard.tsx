@@ -10,14 +10,14 @@ type Props = {
 
 export const FeatureCard = ({ title, description, imgUrl }: Props) => {
   return (
-    <div className="overflow-hidden h-full relative">
-      <div className="aspect-square w-full m-auto relative overflow-hidden rounded-md">
+    <div className="relative h-full overflow-hidden">
+      <div className="relative m-auto aspect-square w-full overflow-hidden rounded">
         <ParallaxImg
           src={imgUrl}
-          className="w-full h-full object-cover absolute top-0 left-0 object-center"
+          className="absolute left-0 top-0 h-full w-full object-cover object-center"
         />
-        <div className="w-full h-1/2 bg-gradient-to-t from-black to-transparent absolute bottom-0 left-0 z-10">
-          <div className="absolute p-3 bottom-0 w-full left-0 bg-gradient-to-l from-brand text-brand-foreground to-transparent rounded-bl text-sm text-center">
+        <div className="absolute bottom-0 left-0 z-10 h-1/2 w-full bg-gradient-to-t from-black to-transparent">
+          <div className="absolute bottom-0 left-0 w-full rounded-bl bg-gradient-to-t from-brand/40 to-transparent p-3 text-center text-sm text-brand-foreground">
             <p className="text-2xl font-semibold">{title}</p>
             <p className="text-lg">{description}</p>
           </div>

@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-
-const fornSans = GeistSans;
-
-import "./globals.css";
 import { Providers } from "@/context/Providers";
+import { GeistSans as FontSans } from "geist/font/sans";
+// import { Ubuntu as FontSans } from "next/font/google";
+// import { Inter as FontSans } from "next/font/google";
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "4Ever Projects ",
@@ -13,6 +12,12 @@ export const metadata: Metadata = {
   generator: "Next.js",
 };
 
+// const fornSans = FontSans({
+//   subsets: ["latin"],
+
+//   weight: ["400", "500", "700"],
+// });
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,8 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fornSans.className} scroll-smooth `}>
-        <Providers>{children}</Providers>
+      <body className={`${FontSans.className} scroll-smooth`}>
+        <Providers>
+          {/* <LoadingScreen /> */}
+          {children}
+        </Providers>
       </body>
     </html>
   );

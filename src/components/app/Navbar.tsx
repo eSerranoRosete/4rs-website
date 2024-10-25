@@ -1,21 +1,13 @@
 "use client";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
-import { ArrowRight, MenuIcon } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { Container } from "./Container";
 
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { useIsOpen } from "../hooks/useIsOpen";
+import { useScroll } from "framer-motion";
+
+import { MenuIcon, MoveUpRightIcon } from "lucide-react";
 
 type NavItem = {
   label: string;
@@ -29,89 +21,82 @@ const navItems: NavItem[] = [
 ];
 
 export const NavBar = () => {
-  const [value, setValue] = useState("/");
+  const { scrollY } = useScroll();
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(
+    null,
+  );
 
-  const { isOpen, onClose, onOpenChange } = useIsOpen();
-
-  const pathname = usePathname();
+  const [atTop, setAtTop] = useState(true);
 
   useEffect(() => {
-    if (value !== pathname) {
-      setValue(pathname);
-    }
-  }, [pathname]);
+    const handleScroll = () => {
+      setAtTop(scrollY.get() < 500);
+    };
+
+    const unsubscribe = scrollY.onChange(handleScroll);
+    handleScroll(); // Set initial state
+
+    return () => unsubscribe();
+  }, [scrollY]);
+
+  useEffect(() => {
+    let lastScrollY = 0;
+
+    const updateScrollDirection = () => {
+      const currentScrollY = scrollY.get();
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection("down");
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection("up");
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    const unsubscribe = scrollY.onChange(updateScrollDirection);
+    return () => unsubscribe();
+  }, [scrollY]);
 
   return (
-    <header className="sticky md:fixed top-0 left-0 w-full z-50 px-6 md:py-2">
-      <Container className="relative">
-        <nav className="text-white flex gap-2 items-center justify-between md:justify-normal">
-          <div className="md:grow absolute md:static left-0 top-2">
-            <Link
-              href="/"
-              className="p-2 rounded inline-block w-32 bg-[url('/4everPROJECTSlogo.png')] dark:bg-[url('/4everPROJECTSlogoW.png')] h-10 bg-contain"
-            ></Link>
-          </div>
+    <header
+      className={cn(
+        "absolute left-0 top-0 z-50 w-full p-1 transition-all duration-500",
+        scrollDirection === "down" && "fixed -translate-y-full",
+        scrollDirection === "up" && "fixed translate-y-0",
+        atTop && "bg-transparent bg-gradient-to-b from-black/70 to-transparent",
+      )}
+    >
+      <nav
+        className={cn(
+          "container m-auto flex items-center justify-between rounded p-1",
+          atTop ? "bg-transparent" : "bg-black",
+        )}
+      >
+        <Link href="/" className="h-10">
+          <img src="/4everPROJECTSlogoW.png" alt="Logo" className="w-32" />
+        </Link>
 
-          <Tabs
-            onValueChange={setValue}
-            value={value}
-            className="hidden md:block"
-          >
-            <TabsList>
-              {navItems.map((item) => (
-                <TabsTrigger
-                  key={item.href}
-                  className={cn(value === item.href && "text-primary")}
-                  value={item.href}
-                >
-                  <Link href={item.href}>{item.label}</Link>
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
+        <ul className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => (
+            <Button
+              asChild
+              variant="link"
+              key={item.href}
+              className={cn("!text-muted-foreground", atTop && "!text-white")}
+            >
+              <Link href={item.href}>{item.label}</Link>
+            </Button>
+          ))}
+        </ul>
 
-          <Button asChild className="hidden md:inline-flex">
-            <Link href="/contacto">
-              Contacto
-              <ArrowRight />
-            </Link>
-          </Button>
+        <Button size="sm" variant="outline" className="hidden md:inline-flex">
+          Contacto
+          <MoveUpRightIcon className="w!-4 !h-4" />
+        </Button>
 
-          <Sheet open={isOpen} onOpenChange={onOpenChange}>
-            <SheetTrigger className="md:hidden absolute top-3 right-0 text-foreground">
-              <MenuIcon />
-            </SheetTrigger>
-            <SheetContent>
-              <SheetDescription>
-                <nav className="flex flex-col gap-4 mt-10">
-                  {navItems.map((item) => (
-                    <Button
-                      asChild
-                      key={item.href}
-                      variant={value === item.href ? "secondary" : "outline"}
-                      onClick={onClose}
-                    >
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={cn(
-                          "text-lg",
-                          value === item.href && "text-primary"
-                        )}
-                      >
-                        {item.label}
-                      </Link>
-                    </Button>
-                  ))}
-                  <Button>
-                    <Link href="/contacto">Contacto</Link>
-                  </Button>
-                </nav>
-              </SheetDescription>
-            </SheetContent>
-          </Sheet>
-        </nav>
-      </Container>
+        <Button variant="ghost" className="md:hidden">
+          <MenuIcon className="!h-6 !w-6" />
+        </Button>
+      </nav>
     </header>
   );
 };

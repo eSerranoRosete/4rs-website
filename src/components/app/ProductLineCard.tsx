@@ -14,24 +14,24 @@ export const ProductLineCard = ({
   bgColor,
 }: Props) => {
   return (
-    <div className="relative overflow-hidden cursor-pointer aspect-square md:aspect-auto rounded-xl">
-      <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black/40 to-black via-transparent z-10" />
+    <div className="relative aspect-square cursor-pointer overflow-hidden rounded md:aspect-auto">
+      <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-black/40 via-transparent to-black" />
 
-      <span className="absolute top-3 right-3 text-white text-lg border-t border-r border-t-white border-r-white rounded-tr-2xl p-2 z-10">
+      <span className="absolute right-3 top-3 z-10 rounded-tr-2xl border-r border-t border-r-white border-t-white p-2 text-lg text-white">
         Para Individuos
       </span>
 
       <div
         style={{ backgroundColor: bgColor }}
-        className="absolute top-0 left-0 w-full h-full z-10"
+        className="absolute left-0 top-0 z-10 h-full w-full"
       >
         <img
           src={imgUrl}
-          className="w-full h-full object-contain object-center absolute top-0 left-0"
+          className="absolute left-0 top-0 h-full w-full object-contain object-center"
         />
       </div>
-      <div className="w-full h-1/2 bg-gradient-to-t from-black to-transparent absolute bottom-0 left-0 z-10">
-        <div className="absolute p-3 bottom-0 w-full left-0 bg-gradient-to-l from-brand text-brand-foreground to-transparent rounded-bl text-sm text-center">
+      <div className="absolute bottom-0 left-0 z-10 h-1/2 w-full bg-gradient-to-t from-black to-transparent">
+        <div className="absolute bottom-0 left-0 w-full rounded-bl bg-gradient-to-t from-brand/40 to-transparent p-3 text-center text-sm text-brand-foreground">
           <p className="text-2xl font-semibold">{title}</p>
           <p className="text-lg">{description}</p>
         </div>
