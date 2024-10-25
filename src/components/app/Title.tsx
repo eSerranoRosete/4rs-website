@@ -11,11 +11,12 @@ type Props = {
 export const Title = ({ children, className }: Props) => {
   return (
     <motion.h2
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.1, duration: 0.5 }}
+      transition={{ delay: 0.2 }}
+      viewport={{ once: true }}
       className={cn(
-        "m-auto max-w-3xl text-balance text-center text-4xl tracking-tight md:text-5xl",
+        "m-auto max-w-3xl text-balance text-center text-4xl font-semibold tracking-tight text-foreground md:text-5xl",
         className,
       )}
     >

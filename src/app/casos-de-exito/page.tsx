@@ -11,15 +11,15 @@ export default function Page() {
   return (
     <>
       <NavBar />
-      <PageSection className="mb-0 pt-14">
-        <Container className="relative overflow-hidden rounded-xl">
+      <PageSection className="pt-14 mb-0">
+        <Container className="rounded-xl relative overflow-hidden">
           <img
             src="/Office_Workers_Laughing_original_548606.jpg"
-            className="absolute left-0 top-0 -z-10 h-full w-full object-cover object-center"
+            className="absolute top-0 left-0 w-full h-full object-cover object-center -z-10"
           />
-          <div className="flex h-[80vh] w-full flex-col items-center justify-end gap-2 bg-gradient-to-t from-black/70 to-transparent px-10 pb-20 text-white md:h-[60vh]">
-            <div className="flex w-full flex-col gap-6">
-              <h1 className="text-center text-2xl font-semibold md:m-auto md:max-w-4xl md:text-5xl">
+          <div className="w-full bg-gradient-to-t from-black/70 text-white to-transparent h-[80vh] md:h-[60vh] px-10 pb-20 flex flex-col gap-2 items-center justify-end">
+            <div className="flex flex-col gap-6 w-full">
+              <h1 className="text-2xl md:text-5xl text-center font-semibold md:max-w-4xl md:m-auto">
                 Descubre cómo hemos ayudado a nuestros clientes a alcanzar el
                 éxito con nuestras soluciones
               </h1>
@@ -33,7 +33,7 @@ export default function Page() {
 
       <PageSection>
         <Container>
-          <div className="mt-10 grid h-full w-full gap-10 md:grid-cols-2 lg:grid-cols-3">
+          <div className="w-full h-full grid md:grid-cols-2 lg:grid-cols-3 mt-10 gap-10">
             {successStories.map((c, i) => (
               <CaseStudyPreview key={i} item={c} />
             ))}

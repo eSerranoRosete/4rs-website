@@ -14,15 +14,15 @@ export const CertificationsCard = ({ title, items, icon: Icon }: Props) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4 }}
       viewport={{ once: true }}
-      className="relative grow rounded bg-background p-6 pt-10 shadow-xl"
+      className="p-6 border-r-foreground border-b-foreground rounded-br-2xl grow relative shadow-xl bg-background rounded-xl pt-10"
     >
-      <Icon className="mb-10 inline-block h-12 w-12 text-brand" />
-      <div className="relative z-10">
-        <p className="text-balance text-4xl font-semibold tracking-tighter">
+      <Icon className="inline-block mb-10 w-16 h-16 text-brand" />
+      <div className="z-10 relative">
+        <p className="text-4xl text-balance font-semibold tracking-tighter">
           {title}
         </p>
-        <hr className="mb-2 mt-5 h-0.5 bg-black/30" />
-        <ul className="flex flex-col gap-4 text-lg text-muted-foreground">
+        <hr className="mt-5 mb-2 h-0.5 bg-black/30" />
+        <ul className="text-lg flex flex-col gap-4">
           {items.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
