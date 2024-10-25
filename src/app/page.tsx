@@ -19,10 +19,12 @@ import { Subtitle } from "@/components/app/Subtitle";
 import { SuccessStories } from "@/components/app/SuccessStories";
 import { Button } from "@/components/ui/button";
 import { successStories } from "@/data/successStories";
+import { LightningBoltIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import {
   ArrowRightIcon,
   CctvIcon,
+  CloudIcon,
   MonitorIcon,
   ShieldIcon,
 } from "lucide-react";
