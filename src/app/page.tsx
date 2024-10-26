@@ -1,6 +1,8 @@
 "use client";
 
+import { Awards } from "@/components/app/Awards";
 import { CertificationsCard } from "@/components/app/CertificationsCard";
+import { ClientCarousell } from "@/components/app/ClientCarousell";
 import { Clients } from "@/components/app/Clients";
 import { ContactBanner } from "@/components/app/ContactBanner";
 import { Container } from "@/components/app/Container";
@@ -326,6 +328,7 @@ export default function Home() {
       </PageSection>
 
       <PageSection className="light bg-background">
+        <ClientCarousell speed="slow" reverseItems pauseOnHover={false} />
         <Title className="light">
           Experiencia con clientes{" "}
           <span className="text-brand">internacionales</span>
@@ -340,7 +343,12 @@ export default function Home() {
           Nuestros clientes internacionales confían en nosotros para proteger
           sus activos y garantizar la seguridad de sus empleados.
         </motion.p>
-        <Clients />
+        <ClientCarousell
+          direction="right"
+          speed="slow"
+          reverseItems
+          pauseOnHover={false}
+        />
       </PageSection>
 
       <PageSection id="hogar" fullHeight className="h-full md:h-screen">
@@ -379,27 +387,7 @@ export default function Home() {
 
       <PageSection>
         <Container className="flex flex-col gap-10">
-          <Title>
-            <span className="text-brand">Certificaciones y premios</span> que
-            nos han brindado
-          </Title>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            <img
-              src="/39072982d5554eaaaaf0fbd8adf62689_01102024053356.png"
-              className="w-full rounded-xl"
-            />
-
-            <img
-              src="/e64056eada4742d2a5ee7d0c192a6fb9_01102024053357.png"
-              className="w-full rounded-xl"
-            />
-
-            <img
-              src="/588af169be0b4689ab86b210ddbd58c9_01102024053357.png"
-              className="w-full rounded-xl"
-            />
-          </div>
+          <Awards />
         </Container>
       </PageSection>
 
