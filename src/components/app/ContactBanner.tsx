@@ -1,33 +1,51 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import { Container } from "./Container";
+import { useRef } from "react";
 import { PageSection } from "./PageSection";
 
 export const ContactBanner = () => {
+  const container = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 30]);
+
   return (
-    <PageSection className="bg-muted md:py-32">
-      <img
-        src="/Toronto_Financial_District_Skyline_original_1953742.jpg"
-        className="absolute top-0 left-0 w-full h-full object-cover object-center z-0 grayscale"
-      />
+    <PageSection fullHeight>
+      <div
+        ref={container}
+        className="container relative h-full w-full overflow-hidden rounded"
+      >
+        <img
+          src="/contact.jpg"
+          className="absolute left-0 top-0 h-full w-full object-cover object-center md:object-left-top"
+        />
 
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-background to-transparent z-10"></div>
-
-      <Container>
-        <div className="relative z-20 flex flex-col md:flex-row items-center justify-center md:justify-between text-center md:text-left">
-          <h2 className="text-3xl md:text-7xl font-bold mb-8 text-balance md:w-2/3">
-            ¿Qué podemos ayudarte a lograr?
-          </h2>
-          <Link href="/contacto" className="flex items-center gap-2">
-            <span className="inline-block md:text-xl">Contáctanos</span>
-            <span className="w-16 h-16 flex items-center justify-center bg-white/30 rounded-full animate-pulse">
-              <span className="w-10 h-10 inline-flex rounded-full bg-white text-brand items-center justify-center">
-                <ArrowRightIcon />
-              </span>
-            </span>
-          </Link>
-        </div>
-      </Container>
+        <motion.div
+          style={{ y }}
+          className="dark absolute left-0 top-0 flex h-full w-full items-end justify-center bg-gradient-to-t from-black to-transparent p-10 pb-32 text-foreground md:pb-20"
+        >
+          <div className="flex flex-col items-center justify-between md:flex-row">
+            <h2 className="mb-8 text-balance text-3xl font-bold md:w-2/3 md:text-6xl">
+              ¿Qué podemos ayudarte a lograr?
+            </h2>
+            <motion.div style={{ x: y }}>
+              <Link href="/contacto" className="flex items-center gap-2">
+                <span className="inline-block md:text-xl">Contáctanos</span>
+                <span className="flex h-16 w-16 animate-pulse items-center justify-center rounded-full bg-white/30">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-brand">
+                    <ArrowRightIcon />
+                  </span>
+                </span>
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </PageSection>
   );
 };
