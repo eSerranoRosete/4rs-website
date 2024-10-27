@@ -17,16 +17,15 @@ export default function Page() {
     <main className="flex flex-col">
       <NavBar />
       <PageSection>
-        <Container className="flex flex-col md:flex-row items-center gap-10 pt-16">
-          <form className="w-full lg:w-3/4 flex flex-col gap-6">
+        <Container className="flex flex-col items-center gap-10 pt-16 md:flex-row">
+          <form className="flex w-full flex-col gap-6 lg:w-3/4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
               className="flex flex-col gap-3"
             >
-              <Title className="md:!text-left m-0 text-5xl font-medium tracking-tight">
+              <Title className="m-0 text-5xl font-medium tracking-tight md:!text-left">
                 Contáctanos
               </Title>
 
@@ -34,8 +33,7 @@ export default function Page() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                viewport={{ once: true }}
-                className="text-lg text-center md:text-left text-balance text-muted-foreground"
+                className="text-balance text-center text-lg text-muted-foreground md:text-left"
               >
                 Necesitas más información sobre nuestros productos o servicios?
                 Contáctanos y te responderemos a la brevedad.
@@ -43,7 +41,7 @@ export default function Page() {
 
               <Button
                 asChild
-                className="gap-2 w-fit text-md m-auto md:ml-0 "
+                className="text-md m-auto w-fit gap-2 md:ml-0"
                 variant="secondary"
               >
                 <Link href="mailto:contacto@4rs.tech" target="_blank">
@@ -54,7 +52,7 @@ export default function Page() {
 
               <Button
                 asChild
-                className="gap-2 w-fit text-md m-auto md:ml-0"
+                className="text-md m-auto w-fit gap-2 md:ml-0"
                 variant="secondary"
               >
                 <Link href="tel:+525536874435" target="_blank">
@@ -65,7 +63,7 @@ export default function Page() {
 
               <Button
                 asChild
-                className="gap-2 w-fit text-md m-auto md:ml-0 h-auto"
+                className="text-md m-auto h-auto w-fit gap-2 md:ml-0"
                 variant="secondary"
               >
                 <Link
@@ -85,7 +83,6 @@ export default function Page() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              viewport={{ once: true }}
               className="flex flex-col gap-6"
             >
               <Input
@@ -95,7 +92,7 @@ export default function Page() {
                 required
                 textSize="lg"
               />
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid gap-6 md:grid-cols-2">
                 <Input
                   variant="underline"
                   placeholder="E-mail *"
@@ -126,14 +123,13 @@ export default function Page() {
               <Button size="lg">Enviar</Button>
             </motion.div>
           </form>
-          <div className="w-full rounded-xl aspect-video relative overflow-hidden">
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl">
             <motion.img
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
               src="/ca53233dd43f4094b66e12fd6a83a45d_01102024053040.png"
-              className="w-full h-full object-cover object-center absolute top-0 left-0 rounded-xl"
+              className="absolute left-0 top-0 h-full w-full rounded-xl object-cover object-center"
             />
           </div>
         </Container>

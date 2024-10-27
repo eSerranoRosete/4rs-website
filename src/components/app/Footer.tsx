@@ -3,33 +3,31 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Container } from "./Container";
 import { ModeToggle } from "./ModeToggle";
 
 export const Footer = () => {
   return (
-    <footer
-      className="w-full text-foreground bg-muted"
-      suppressHydrationWarning
-    >
+    <footer className={cn("w-full bg-muted text-foreground")}>
       <Container>
-        <div className="w-full p-6 py-10 flex flex-col">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-10 w-full">
-            <h6 className="text-3xl font-medium tracking-tight shrink-0">
+        <div className="flex w-full flex-col p-6 py-10">
+          <div className="flex w-full flex-col items-center justify-between gap-10 md:flex-row">
+            <h6 className="shrink-0 text-3xl font-medium tracking-tight">
               Ingresa tu email para recibir
               <br /> nuestras últimas actualizaciones
             </h6>
             <div className="w-full max-w-md">
-              <div className="flex items-center gap-3 w-full">
+              <div className="flex w-full items-center gap-3">
                 <Input className="text-md" placeholder="m@example.com" />
                 <Button>Suscribirse</Button>
               </div>
             </div>
           </div>
           <Separator className="my-10" />
-          <div className="w-full flex flex-col md:flex-row gap-10 justify-between">
-            <div className="flex flex-col gap-4 max-w-xs">
+          <div className="flex w-full flex-col justify-between gap-10 md:flex-row">
+            <div className="flex max-w-xs flex-col gap-4">
               <p className="text-sm text-muted-foreground">
                 &#8212; Crear una atmósfera de tranquilidad, confort y seguridad
                 para nuestros clientes.
@@ -44,7 +42,7 @@ export const Footer = () => {
             </div>
 
             <div className="">
-              <h6 className="font-medium text-sm mb-2">Menu</h6>
+              <h6 className="mb-2 text-sm font-medium">Menu</h6>
               <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
                 <li>
                   <Link href="/" className="hover:underline">
@@ -64,7 +62,7 @@ export const Footer = () => {
               </ul>
             </div>
             <div className="">
-              <h6 className="font-medium text-sm mb-2">Productos</h6>
+              <h6 className="mb-2 text-sm font-medium">Productos</h6>
               <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
                 <li>
                   <Link href="/" className="hover:underline">
@@ -99,7 +97,7 @@ export const Footer = () => {
               </ul>
             </div>
             <div className="">
-              <h6 className="font-medium text-sm mb-2">Contacto</h6>
+              <h6 className="mb-2 text-sm font-medium">Contacto</h6>
               <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
                 <li>
                   <Link href="/" className="hover:underline">
@@ -129,7 +127,7 @@ export const Footer = () => {
             <p>&copy; 2024 4ever Alert. Todos los derechos reservados.</p>
             <Link
               href="/"
-              className="p-2 rounded inline-block w-32 bg-[url('/4everPROJECTSlogo.png')] dark:bg-[url('/4everPROJECTSlogoW.png')] h-10 bg-contain"
+              className="inline-block h-10 w-32 rounded bg-[url('/4everPROJECTSlogo.png')] bg-contain p-2 dark:bg-[url('/4everPROJECTSlogoW.png')]"
             ></Link>
           </div>
         </div>

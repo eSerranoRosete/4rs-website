@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-
-const fornSans = GeistSans;
-
-import "./globals.css";
 import { Providers } from "@/context/Providers";
+import { ReactLenis } from "@/lib/lenis";
+import { GeistSans } from "geist/font/sans";
+import type { Metadata } from "next";
+import "./globals.css";
+const fornSans = GeistSans;
 
 export const metadata: Metadata = {
   title: "4Ever Projects ",
@@ -20,9 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fornSans.className} scroll-smooth `}>
-        <Providers>{children}</Providers>
-      </body>
+      <ReactLenis root>
+        <body className={`${fornSans.className}`}>
+          <Providers>{children}</Providers>
+        </body>
+      </ReactLenis>
     </html>
   );
 }

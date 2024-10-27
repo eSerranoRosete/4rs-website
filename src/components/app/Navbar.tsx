@@ -1,21 +1,17 @@
 "use client";
-
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { cn } from "@/lib/utils";
-import { ArrowRight, MenuIcon } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Button } from "../ui/button";
-import { Container } from "./Container";
-
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { MenuIcon } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 import { useIsOpen } from "../hooks/useIsOpen";
+import { Button } from "../ui/button";
 
 type NavItem = {
   label: string;
@@ -29,76 +25,74 @@ const navItems: NavItem[] = [
 ];
 
 export const NavBar = () => {
-  const [value, setValue] = useState("/");
-
   const { isOpen, onClose, onOpenChange } = useIsOpen();
+  const [last, setLast] = useState(0);
+  const [direction, setDirection] = useState<"up" | "down">("up");
 
-  const pathname = usePathname();
+  const { scrollYProgress } = useScroll();
 
-  useEffect(() => {
-    if (value !== pathname) {
-      setValue(pathname);
+  const atTop = last === 0;
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    // keep track of the last value
+    setLast(latest);
+
+    // if the latest value is greater than the last value, the user is scrolling down
+    if (latest > last) {
+      setDirection("down");
+
+      // if the latest value is less than the last value, the user is scrolling up
+    } else {
+      setDirection("up");
     }
-  }, [pathname]);
+  });
 
   return (
-    <header className="sticky md:fixed top-0 left-0 w-full z-50 px-6 md:py-2">
-      <Container className="relative">
-        <nav className="text-white flex gap-2 items-center justify-between md:justify-normal">
-          <div className="md:grow absolute md:static left-0 top-2">
-            <Link
-              href="/"
-              className="p-2 rounded inline-block w-32 bg-[url('/4everPROJECTSlogo.png')] dark:bg-[url('/4everPROJECTSlogoW.png')] h-10 bg-contain"
-            ></Link>
+    <header className="fixed left-0 top-0 z-50 w-full p-2">
+      <motion.div
+        style={{
+          scaleY: direction === "down" ? 0 : 1,
+          originY: 0,
+        }}
+        className={cn(
+          "dark container relative overflow-hidden rounded bg-black p-1.5 transition-all duration-300",
+          atTop ? "bg-opacity-0" : "bg-opacity-100",
+        )}
+      >
+        <nav className="flex items-center justify-between gap-2 md:justify-normal">
+          <Link href="/" className="grow">
+            <img src="/4everPROJECTSlogoW.png" alt="" className="h-full w-24" />
+          </Link>
+
+          <div className="hidden md:flex">
+            {navItems.map((item, index) => (
+              <Button key={index} variant="link">
+                <Link href={item.href} className="text-sm">
+                  {item.label}
+                </Link>
+              </Button>
+            ))}
           </div>
 
-          <Tabs
-            onValueChange={setValue}
-            value={value}
-            className="hidden md:block"
-          >
-            <TabsList>
-              {navItems.map((item) => (
-                <TabsTrigger
-                  key={item.href}
-                  className={cn(value === item.href && "text-primary")}
-                  value={item.href}
-                >
-                  <Link href={item.href}>{item.label}</Link>
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
-
-          <Button asChild className="hidden md:inline-flex">
-            <Link href="/contacto">
-              Contacto
-              <ArrowRight />
-            </Link>
+          <Button asChild className="hidden md:inline-flex" size="sm">
+            <Link href="/contacto">Contacto</Link>
           </Button>
 
           <Sheet open={isOpen} onOpenChange={onOpenChange}>
-            <SheetTrigger className="md:hidden absolute top-3 right-0 text-foreground">
+            <SheetTrigger className="md:hidden">
               <MenuIcon />
             </SheetTrigger>
             <SheetContent>
               <SheetDescription>
-                <nav className="flex flex-col gap-4 mt-10">
+                <nav className="mt-10 flex flex-col gap-4">
                   {navItems.map((item) => (
                     <Button
                       asChild
                       key={item.href}
-                      variant={value === item.href ? "secondary" : "outline"}
+                      variant="outline"
                       onClick={onClose}
                     >
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={cn(
-                          "text-lg",
-                          value === item.href && "text-primary"
-                        )}
-                      >
+                      <Link key={item.href} href={item.href}>
                         {item.label}
                       </Link>
                     </Button>
@@ -111,7 +105,7 @@ export const NavBar = () => {
             </SheetContent>
           </Sheet>
         </nav>
-      </Container>
+      </motion.div>
     </header>
   );
 };
